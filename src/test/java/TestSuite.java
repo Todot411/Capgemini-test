@@ -6,9 +6,11 @@ public class TestSuite {
     public static WebDriver driver = new ChromeDriver();
 
     public static void main(String[] args) {
-        driver.get("https://github.com/");
+        driver.get("https://www.tax.service.gov.uk/estimate-paye-take-home-pay/your-pay");
         try{
-            if(driver.findElement(By.className("hello")).isDisplayed()){
+            String css = "h1";
+            css+=".";
+            if(driver.findElement(By.cssSelector(css)).isDisplayed()){
                 System.out.println("Surprise!");
             }
         } finally {
