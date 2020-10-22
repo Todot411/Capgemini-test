@@ -1,5 +1,6 @@
 package Pages;
 
+import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.ElementNotVisibleException;
 import org.openqa.selenium.WebDriver;
@@ -8,6 +9,9 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class BasicPage {
+
+    private static final By CONTINUE_BUTTON =By.cssSelector("button");
+    private static final By PAGE_TITLE = By.cssSelector("h1");
 
     protected WebDriver driver;
     protected WebDriverWait wait;
@@ -45,8 +49,13 @@ public class BasicPage {
         }
     }
 
-    void typeInInput(By selector, String inputKeys) {
-        WebElement element = wait.until(ExpectedConditions.elementToBeClickable(selector));
-        element.sendKeys(inputKeys);
+
+    public void clickContinue() {
+        waitAndClick(CONTINUE_BUTTON);
+    }
+
+    public void pageIsDisplayed(String s) {
+        WebElement pageTitle = driver.findElement(PAGE_TITLE);
+        Assert.assertEquals(s, pageTitle.getText());
     }
 }

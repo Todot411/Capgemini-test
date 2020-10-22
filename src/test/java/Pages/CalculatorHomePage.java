@@ -15,16 +15,9 @@ public class CalculatorHomePage extends BasicPage {
     }
 
     private static String URL = "https://www.tax.service.gov.uk/estimate-paye-take-home-pay/your-pay";
-    private static final By PAY_INPUT_BOX = By.cssSelector(".govuk-input");
-    //private final List<WebElement> FREQUENCY_OF_PAY_RADIOS = this.driver.findElements(By.cssSelector(".govuk-radios__input"));
-    private static final By CONTINUE_BUTTON = By.cssSelector("button");
 
     public void goHome(){
         driver.get(URL);
-    }
-
-    public void clickContinue() {
-        waitAndClick(CONTINUE_BUTTON);
     }
 
     public void selectFrequency(String frequency){
@@ -54,9 +47,7 @@ public class CalculatorHomePage extends BasicPage {
         }
     }
 
-    public void enterPayAmount(String amount) {
-        typeInInput(PAY_INPUT_BOX, amount);
-    }
+
 }
 
 
